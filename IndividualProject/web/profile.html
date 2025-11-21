@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Profile Form</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #000814, #001d3d);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            width: 450px;
+            box-shadow: 0 0 20px rgba(0, 140, 255, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4da3ff;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+
+        input:focus, textarea:focus {
+            box-shadow: 0 0 12px #4da3ff;
+        }
+
+        #preview {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: block;
+            align-content: center;
+            margin: 10px auto 20px;
+            object-fit: cover;
+            border: 3px solid #4da3ff;
+            box-shadow: 0 0 10px rgba(0, 140, 255, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #0077ff;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #005fcc;
+        }
+    </style>
+
+    <script>
+        function previewImage(event) {
+            const img = document.getElementById("preview");
+            img.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>Personal Profile</h2>
+
+        <img id="preview" src="https://via.placeholder.com/120" alt="Profile Photo">
+
+        <form action="ProfileServlet" method="post" enctype="multipart/form-data">
+
+            <label>Upload Photo:</label>
+            <input type="file" name="photo" accept="image/*" onchange="previewImage(event)" required>
+
+            <label>Name:</label>
+            <input type="text" name="name" required>
+
+            <label>Student ID:</label>
+            <input type="text" name="studentId" required>
+
+            <label>Program:</label>
+            <input type="text" name="program" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <label>Hobbies:</label>
+            <input type="text" name="hobbies" required>
+
+            <label>Self Introduction:</label>
+            <textarea name="intro" rows="4" required></textarea>
+
+            <button type="submit">Submit Profile</button>
+        </form>
+    </div>
+</body>
+</html>

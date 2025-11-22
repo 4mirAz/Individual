@@ -79,8 +79,8 @@
         </div>
 
         <div class="info">
-            <label>Email:</label>
-            <p>${email}</p>
+             <label>Email:</label>
+             <p><a href="mailto:${email}" class="email-link">${email}</a></p>
         </div>
 
         <div class="info">

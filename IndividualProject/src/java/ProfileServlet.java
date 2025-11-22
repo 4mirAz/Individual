@@ -24,7 +24,7 @@ public class ProfileServlet extends HttpServlet {
         String hobbies = request.getParameter("hobbies");
         String intro = request.getParameter("intro");
 
-        // ------ PHOTO ------
+       
         Part filePart = request.getPart("photo");
         InputStream fileContent = filePart.getInputStream();
 
